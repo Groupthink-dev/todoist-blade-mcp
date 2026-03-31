@@ -1,0 +1,45 @@
+name: todoist-blade-mcp
+version: "0.1.0"
+description: "Todoist task management — CRUD tasks/projects/sections/labels/comments, incremental sync, batch commands, filter queries"
+author: piersdd
+licence: MIT
+tier: certified
+homepage: https://github.com/groupthink-dev/todoist-blade-mcp
+contract: tasks-v1
+
+services:
+  tasks:
+    list: tasks_list
+    search: tasks_search
+    projects: projects_list
+    today: tasks_list  # filter="today"
+    inbox: tasks_list  # project_id=<inbox>
+    tags: labels_list
+    summary: todoist_stats
+    logbook: todoist_completed
+    create: tasks_create
+    update: tasks_update
+    complete: tasks_complete
+
+install:
+  runtime: uv
+  package: todoist-blade-mcp
+  command: todoist-blade-mcp
+
+env:
+  - name: TODOIST_API_TOKEN
+    description: "Todoist API token (Settings → Integrations → Developer)"
+    secret: true
+  - name: TODOIST_WRITE_ENABLED
+    description: "Enable write operations (create, update, complete, delete, batch)"
+    default: "false"
+
+requires:
+  sidereal: ">=0.3.0"
+
+conformance:
+  required: "3/3"
+  recommended: "4/4"
+  optional: "1/1"
+  gated: "3/3"
+  last_tested: "2026-03-31"
