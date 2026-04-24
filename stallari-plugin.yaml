@@ -2,7 +2,7 @@ name: todoist-blade-mcp
 version: "0.1.1"
 description: "Todoist task management — CRUD tasks/projects/sections/labels/comments, incremental sync, batch commands, filter queries"
 author: piersdd
-licence: MIT
+license: MIT
 tier: certified
 homepage: https://github.com/groupthink-dev/todoist-blade-mcp
 contract: tasks-v1
